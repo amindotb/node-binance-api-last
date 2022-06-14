@@ -1856,6 +1856,11 @@ binance.withdraw("XMR", address, amount, addressTag);
 binance.withdraw("BTC", "1C5gqLRs96Xq4V2ZZAR1347yUCpHie7sa", 0.2);
 ```
 
+#### Withdraw on other networks than the default main network
+```js
+binance.withdraw("BTC", "1C5gqLRs96Xq4V2ZZAR1347yUCpHie7sa", 0.2. "BSC");
+```
+
 ### Univeral Transfer / Internal Wallet Transfer
 Example Spot account transfer to USDⓈ-M Futures account , use ENUM -> "MAIN_UMFUTURE"
 ```js
