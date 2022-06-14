@@ -1858,7 +1858,7 @@ binance.withdraw("BTC", "1C5gqLRs96Xq4V2ZZAR1347yUCpHie7sa", 0.2);
 
 #### Withdraw on other networks than the default main network
 ```js
-binance.withdraw("BTC", "1C5gqLRs96Xq4V2ZZAR1347yUCpHie7sa", 0.2. "BSC");
+binance.withdrawAdvance("BTC", "1C5gqLRs96Xq4V2ZZAR1347yUCpHie7sa", 0.2. "BSC");
 ```
 
 ### Univeral Transfer / Internal Wallet Transfer
