@@ -3429,6 +3429,38 @@ let api = function Binance( options = {} ) {
             }
         },
 
+        
+        /**
+        * Withdraws asset to given wallet id with network settings
+        * @param {string} asset - the asset symbol
+        * @param {string} address - the wallet to transfer it to
+        * @param {number} amount - the amount to transfer
+        * @param {string} network - the network of transfer
+        * @param {string} addressTag - and addtional address tag
+        * @param {function} callback - the callback function
+        * @param {string} name - the name to save the address as. Set falsy to prevent Binance saving to address book
+        * @return {promise or undefined} - omitting the callback returns a promise
+        */
+         withdrawAdvance: function ( asset, address, amount, network = null, addressTag = false, callback = false, name = false ) {
+            let params = { asset, address, amount, network };
+            if ( name ) params.name = name;
+            if ( addressTag ) params.addressTag = addressTag;
+            if ( !callback ) {
+                return new Promise( ( resolve, reject ) => {
+                    callback = ( error, response ) => {
+                        if ( error ) {
+                            reject( error );
+                        } else {
+                            resolve( response );
+                        }
+                    }
+                    signedRequest( wapi + 'v3/withdraw.html', params, callback, 'POST' );
+                } )
+            } else {
+                signedRequest( wapi + 'v3/withdraw.html', params, callback, 'POST' );
+            }
+        },
+
         /**
         * Get the Withdraws history for a given asset
         * @param {function} callback - the callback function
